@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NaturaGlow - Cosméticos naturales y sostenibles para cuidar tu piel y el planeta. Productos orgánicos de alta calidad.">
+    <meta name="keywords" content="cosméticos naturales, productos orgánicos, belleza sostenible, cremas naturales, aceites esenciales, jabones artesanales">
+    <meta name="author" content="NaturaGlow">
+    <title>NaturaGlow - Belleza Natural y Sostenible</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Configuración personalizada de Tailwind */
+        .bg-natural-green {
+            background-color: #4A6741;
+        }
+        
+        .text-natural-green {
+            color: #4A6741;
+        }
+        
+        .border-natural-green {
+            border-color: #4A6741;
+        }
+        
+        .bg-warm-beige {
+            background-color: #F5F1E8;
+        }
+        
+        .text-warm-beige {
+            color: #F5F1E8;
+        }
+        
+        .bg-soft-gold {
+            background-color: #D4AF37;
+        }
+        
+        .text-soft-gold {
+            color: #D4AF37;
+        }
+        
+        /* Animaciones personalizadas */
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header / Navegación -->
+    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-leaf text-2xl text-natural-green"></i>
+                    <span class="text-2xl font-bold text-natural-green">NaturaGlow</span>
+                </div>
+                
+                <!-- Navegación Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="#productos" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Productos</a>
+                    <a href="#sobre-nosotros" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Sobre Nosotros</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Contacto</a>
+                </div>
+                
+                <!-- Carrito de compras -->
+                <div class="flex items-center space-x-4">
+                    <button class="relative p-2 text-gray-700 hover:text-natural-green transition-colors duration-300">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-soft-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    
+                    <!-- Menú hamburguesa para móvil -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 hover:text-natural-green transition-colors duration-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-gray-200">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="#inicio" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Inicio</a>
+                    <a href="#productos" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Productos</a>
+                    <a href="#sobre-nosotros" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Sobre Nosotros</a>
+                    <a href="#contacto" class="text-gray-700 hover:text-natural-green transition-colors duration-300 font-medium">Contacto</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">
+                Belleza Natural para tu Piel
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-100 max-w-2xl mx-auto">
+                Descubre el poder de los ingredientes naturales. Productos sostenibles que cuidan tu piel y el planeta.
+            </p>
+            <button onclick="scrollToSection('productos')" 
+                    class="bg-natural-green hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover-scale shadow-lg">
+                Explora Productos
+            </button>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="py-20 bg-warm-beige">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-natural-green mb-4">Nuestros Productos</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Productos artesanales elaborados con ingredientes 100% naturales y sostenibles
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Producto 1: Crema Hidratante -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale transition-all duration-300">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-natural-green mb-2">Crema Hidratante Natural</h3>
+                        <p class="text-gray-600 mb-4">Con aloe vera y aceite de coco. Hidratación profunda para todo tipo de piel.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-soft-gold">€24.99</span>
+                            <button onclick="addToCart('Crema Hidratante Natural')" 
+                                    class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2: Jabón Artesanal -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale transition-all duration-300">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-natural-green mb-2">Jabón Artesanal de Lavanda</h3>
+                        <p class="text-gray-600 mb-4">Elaborado a mano con aceite de oliva y esencia de lavanda. Suave y relajante.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-soft-gold">€8.99</span>
+                            <button onclick="addToCart('Jabón Artesanal de Lavanda')" 
+                                    class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3: Aceite Esencial -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale transition-all duration-300">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-natural-green mb-2">Aceite Esencial de Rosa</h3>
+                        <p class="text-gray-600 mb-4">100% puro y natural. Ideal para aromaterapia y cuidado facial.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-soft-gold">€32.99</span>
+                            <button onclick="addToCart('Aceite Esencial de Rosa')" 
+                                    class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4: Mascarilla Facial -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale transition-all duration-300">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-natural-green mb-2">Mascarilla de Arcilla Verde</h3>
+                        <p class="text-gray-600 mb-4">Purificante y detoxificante. Con arcilla verde y aceites esenciales.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-soft-gold">€18.99</span>
+                            <button onclick="addToCart('Mascarilla de Arcilla Verde')" 
+                                    class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5: Serum Facial -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale transition-all duration-300">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-natural-green mb-2">Serum Vitamina C</h3>
+                        <p class="text-gray-600 mb-4">Antioxidante natural con vitamina C estabilizada. Ilumina y protege la piel.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-soft-gold">€28.99</span>
+                            <button onclick="addToCart('Serum Vitamina C')" 
+                                    class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6: Exfoliante Corporal -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover-scale transition-all duration-300">
+                    <div class="h-64 bg-cover bg-center" 
+                         style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-natural-green mb-2">Exfoliante de Azúcar y Coco</h3>
+                        <p class="text-gray-600 mb-4">Exfoliante suave con azúcar moreno y aceite de coco. Piel suave y radiante.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-soft-gold">€15.99</span>
+                            <button onclick="addToCart('Exfoliante de Azúcar y Coco')" 
+                                    class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
+                                Añadir al Carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="sobre-nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold text-natural-green mb-6">Sobre NaturaGlow</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        En NaturaGlow, creemos en el poder de la naturaleza para cuidar y embellecer tu piel. 
+                        Nuestros productos están elaborados con ingredientes 100% naturales y sostenibles, 
+                        respetando tanto tu piel como el medio ambiente.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Cada producto es cuidadosamente seleccionado y elaborado artesanalmente, 
+                        garantizando la máxima calidad y pureza. Nuestra misión es ofrecerte 
+                        cosméticos que no solo te hagan sentir hermosa, sino que también 
+                        contribuyan a un mundo más sostenible.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-leaf text-natural-green text-xl"></i>
+                            <span class="text-gray-700 font-medium">100% Natural</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-recycle text-natural-green text-xl"></i>
+                            <span class="text-gray-700 font-medium">Sostenible</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-heart text-natural-green text-xl"></i>
+                            <span class="text-gray-700 font-medium">Cruelty Free</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                             alt="Ingredientes naturales" 
+                             class="w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-20 bg-warm-beige">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-natural-green mb-4">Contáctanos</h2>
+                    <p class="text-xl text-gray-600">
+                        ¿Tienes alguna pregunta? Nos encantaría escucharte
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Información de contacto -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-natural-green mb-6">Información de Contacto</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-natural-green rounded-full flex items-center justify-center">
+                                        <i class="fas fa-envelope text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Email</p>
+                                        <p class="text-gray-600">info@naturaglow.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-natural-green rounded-full flex items-center justify-center">
+                                        <i class="fas fa-phone text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Teléfono</p>
+                                        <p class="text-gray-600">+34 91 123 45 67</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-natural-green rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Dirección</p>
+                                        <p class="text-gray-600">Calle Natural 123, Madrid, España</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-bold text-natural-green mb-6">Horario de Atención</h3>
+                            <div class="space-y-2 text-gray-600">
+                                <p><span class="font-semibold">Lunes - Viernes:</span> 9:00 - 18:00</p>
+                                <p><span class="font-semibold">Sábados:</span> 10:00 - 16:00</p>
+                                <p><span class="font-semibold">Domingos:</span> Cerrado</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulario de contacto -->
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-natural-green mb-6">Envíanos un Mensaje</h3>
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nombre completo</label>
+                                <input type="text" id="name" name="name" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-natural-green focus:border-transparent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-natural-green focus:border-transparent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Asunto</label>
+                                <input type="text" id="subject" name="subject" required
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-natural-green focus:border-transparent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Mensaje</label>
+                                <textarea id="message" name="message" rows="5" required
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-natural-green focus:border-transparent transition-all duration-300 resize-none"></textarea>
+                            </div>
+                            <button type="submit" 
+                                    class="w-full bg-natural-green hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover-scale">
+                                Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-natural-green text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo y descripción -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-leaf text-2xl"></i>
+                        <span class="text-2xl font-bold">NaturaGlow</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Cosméticos naturales y sostenibles para cuidar tu piel y el planeta. 
+                        Productos elaborados con ingredientes 100% naturales y respetuosos con el medio ambiente.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors duration-300">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Enlaces rápidos -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-300 hover:text-white transition-colors duration-300">Inicio</a></li>
+                        <li><a href="#productos" class="text-gray-300 hover:text-white transition-colors duration-300">Productos</a></li>
+                        <li><a href="#sobre-nosotros" class="text-gray-300 hover:text-white transition-colors duration-300">Sobre Nosotros</a></li>
+                        <li><a href="#contacto" class="text-gray-300 hover:text-white transition-colors duration-300">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Información legal -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Información</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Términos y Condiciones</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Política de Devoluciones</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria -->
+            <div class="border-t border-white/20 mt-8 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-300 text-sm">
+                        © 2024 NaturaGlow. Todos los derechos reservados.
+                    </p>
+                    <p class="text-gray-300 text-sm mt-2 md:mt-0">
+                        Hecho con <i class="fas fa-heart text-red-400"></i> para el planeta
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Variables globales
+        let cartCount = 0;
+        
+        // Función para mostrar/ocultar menú móvil
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Función para añadir productos al carrito
+        function addToCart(productName) {
+            cartCount++;
+            updateCartCount();
+            showNotification(`${productName} añadido al carrito`);
+        }
+        
+        // Función para actualizar el contador del carrito
+        function updateCartCount() {
+            const cartBadge = document.querySelector('.fa-shopping-cart + span');
+            if (cartBadge) {
+                cartBadge.textContent = cartCount;
+            }
+        }
+        
+        // Función para mostrar notificaciones
+        function showNotification(message) {
+            // Crear elemento de notificación
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-20 right-4 bg-natural-green text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.textContent = message;
+            
+            // Añadir al DOM
+            document.body.appendChild(notification);
+            
+            // Animar entrada
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Remover después de 3 segundos
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Función para manejar el envío del formulario
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener datos del formulario
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Validación básica
+            if (!name || !email || !subject || !message) {
+                showNotification('Por favor, completa todos los campos');
+                return;
+            }
+            
+            // Simular envío
+            showNotification('Mensaje enviado correctamente. Te responderemos pronto.');
+            
+            // Limpiar formulario
+            this.reset();
+        });
+        
+        // Función para scroll suave a secciones
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Cerrar menú móvil al hacer clic en enlaces
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Animación de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observar elementos para animación
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Configuración personalizada de Tailwind
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'natural-green': '#4A6741',
+                        'warm-beige': '#F5F1E8',
+                        'soft-gold': '#D4AF37'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</body>
+</html> 
