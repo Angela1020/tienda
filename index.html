@@ -91,9 +91,9 @@
                 
                 <!-- Carrito de compras -->
                 <div class="flex items-center space-x-4">
-                    <button class="relative p-2 text-gray-700 hover:text-natural-green transition-colors duration-300">
+                    <button id="cart-btn" class="relative p-2 text-gray-700 hover:text-natural-green transition-colors duration-300">
                         <i class="fas fa-shopping-cart text-xl"></i>
-                        <span class="absolute -top-1 -right-1 bg-soft-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-soft-gold text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
                     </button>
                     
                     <!-- Menú hamburguesa para móvil -->
@@ -153,7 +153,7 @@
                         <h3 class="text-xl font-bold text-natural-green mb-2">Crema Hidratante Natural</h3>
                         <p class="text-gray-600 mb-4">Con aloe vera y aceite de coco. Hidratación profunda para todo tipo de piel.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-soft-gold">€24.99</span>
+                            <span class="text-2xl font-bold text-soft-gold">$89.900</span>
                             <button onclick="addToCart('Crema Hidratante Natural')" 
                                     class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
                                 Añadir al Carrito
@@ -171,7 +171,7 @@
                         <h3 class="text-xl font-bold text-natural-green mb-2">Jabón Artesanal de Lavanda</h3>
                         <p class="text-gray-600 mb-4">Elaborado a mano con aceite de oliva y esencia de lavanda. Suave y relajante.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-soft-gold">€8.99</span>
+                            <span class="text-2xl font-bold text-soft-gold">$32.900</span>
                             <button onclick="addToCart('Jabón Artesanal de Lavanda')" 
                                     class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
                                 Añadir al Carrito
@@ -189,7 +189,7 @@
                         <h3 class="text-xl font-bold text-natural-green mb-2">Aceite Esencial de Rosa</h3>
                         <p class="text-gray-600 mb-4">100% puro y natural. Ideal para aromaterapia y cuidado facial.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-soft-gold">€32.99</span>
+                            <span class="text-2xl font-bold text-soft-gold">$119.900</span>
                             <button onclick="addToCart('Aceite Esencial de Rosa')" 
                                     class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
                                 Añadir al Carrito
@@ -207,7 +207,7 @@
                         <h3 class="text-xl font-bold text-natural-green mb-2">Mascarilla de Arcilla Verde</h3>
                         <p class="text-gray-600 mb-4">Purificante y detoxificante. Con arcilla verde y aceites esenciales.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-soft-gold">€18.99</span>
+                            <span class="text-2xl font-bold text-soft-gold">$69.900</span>
                             <button onclick="addToCart('Mascarilla de Arcilla Verde')" 
                                     class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
                                 Añadir al Carrito
@@ -225,7 +225,7 @@
                         <h3 class="text-xl font-bold text-natural-green mb-2">Serum Vitamina C</h3>
                         <p class="text-gray-600 mb-4">Antioxidante natural con vitamina C estabilizada. Ilumina y protege la piel.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-soft-gold">€28.99</span>
+                            <span class="text-2xl font-bold text-soft-gold">$105.900</span>
                             <button onclick="addToCart('Serum Vitamina C')" 
                                     class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
                                 Añadir al Carrito
@@ -243,7 +243,7 @@
                         <h3 class="text-xl font-bold text-natural-green mb-2">Exfoliante de Azúcar y Coco</h3>
                         <p class="text-gray-600 mb-4">Exfoliante suave con azúcar moreno y aceite de coco. Piel suave y radiante.</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-soft-gold">€15.99</span>
+                            <span class="text-2xl font-bold text-soft-gold">$58.900</span>
                             <button onclick="addToCart('Exfoliante de Azúcar y Coco')" 
                                     class="bg-natural-green hover:bg-green-700 text-white px-4 py-2 rounded-full transition-colors duration-300">
                                 Añadir al Carrito
@@ -390,6 +390,54 @@
         </div>
     </section>
 
+    <!-- Modal del Carrito de Compras -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+                <!-- Header del modal -->
+                <div class="bg-natural-green text-white p-6 flex items-center justify-between">
+                    <h3 class="text-2xl font-bold flex items-center">
+                        <i class="fas fa-shopping-cart mr-3"></i>
+                        Carrito de Compras
+                    </h3>
+                    <button id="close-cart" class="text-white hover:text-gray-200 transition-colors duration-300">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Contenido del carrito -->
+                <div class="p-6 overflow-y-auto max-h-[60vh]">
+                    <div id="cart-items" class="space-y-4">
+                        <!-- Los items del carrito se agregarán dinámicamente aquí -->
+                    </div>
+                    
+                    <!-- Mensaje de carrito vacío -->
+                    <div id="empty-cart" class="text-center py-12">
+                        <i class="fas fa-shopping-bag text-6xl text-gray-300 mb-4"></i>
+                        <p class="text-xl text-gray-500 mb-2">Tu carrito está vacío</p>
+                        <p class="text-gray-400">¡Agrega algunos productos naturales para comenzar!</p>
+                    </div>
+                </div>
+                
+                <!-- Footer del modal con total y botones -->
+                <div class="border-t border-gray-200 p-6 bg-gray-50">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-lg font-semibold text-gray-700">Total:</span>
+                        <span id="cart-total" class="text-2xl font-bold text-natural-green">$0</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <button id="clear-cart" class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
+                            Vaciar Carrito
+                        </button>
+                        <button id="checkout-btn" class="flex-1 bg-natural-green hover:bg-green-700 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
+                            Finalizar Compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-natural-green text-white py-12">
         <div class="container mx-auto px-4">
@@ -457,30 +505,192 @@
         </div>
     </footer>
 
+    <!-- Icono flotante de chat y contenedor del bot -->
+    <div id="chat-float-btn" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <!-- Botón flotante de chat -->
+        <button id="open-chat-btn" aria-label="Abrir chat" class="bg-natural-green hover:bg-green-700 text-white rounded-full shadow-lg w-16 h-16 flex items-center justify-center text-3xl transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-soft-gold animate-bounce">
+            <i class="fas fa-comments"></i>
+        </button>
+        <!-- Contenedor del iframe del bot, oculto por defecto -->
+        <div id="chat-iframe-container" class="hidden mt-4" style="min-width: 350px; max-width: 400px; width: 100%; min-height: 500px; background: #fff; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.15);">
+            <div class="relative">
+                <!-- Botón de cerrar -->
+                <button id="close-chat-btn" aria-label="Cerrar chat" class="absolute top-3 right-3 bg-white hover:bg-warm-beige text-natural-green rounded-full w-8 h-8 flex items-center justify-center shadow transition-colors duration-200 z-10 border border-natural-green focus:outline-none">
+                    <i class="fas fa-times"></i>
+                </button>
+                <iframe src='https://webchat.botframework.com/embed/Hola-Tommy-1020-bot?s=7k63o6WrNtANkbOWoTg0YGfRC70v1ZOl9YQP0mmMu5mj3CZw4wehJQQJ99BGACHYHv6AArohAAABAZBS4505.5bPsYrfH01JtkgJkUyk0a419KgSapt8Ip4WwhLqPqVMI7DVoyrJmJQQJ99BGACHYHv6AArohAAABAZBS1OyB' title='Asistente Virtual NaturaGlow' style='width: 100%; height: 500px; border: none; border-radius: 1rem;'></iframe>
+            </div>
+        </div>
+    </div>
+    
     <!-- JavaScript -->
     <script>
         // Variables globales
         let cartCount = 0;
+        let cartItems = [];
         
-        // Función para mostrar/ocultar menú móvil
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Precios de los productos en pesos colombianos
+        const productPrices = {
+            'Crema Hidratante Natural': 89900,
+            'Jabón Artesanal de Lavanda': 32900,
+            'Aceite Esencial de Rosa': 119900,
+            'Mascarilla de Arcilla Verde': 69900,
+            'Serum Vitamina C': 105900,
+            'Exfoliante de Azúcar y Coco': 58900
+        };
+        
+        // Cargar carrito desde localStorage al iniciar
+        function loadCart() {
+            const savedCart = localStorage.getItem('naturaglow-cart');
+            if (savedCart) {
+                cartItems = JSON.parse(savedCart);
+                cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+                updateCartCount();
+                updateCartDisplay();
+            }
+        }
+        
+        // Guardar carrito en localStorage
+        function saveCart() {
+            localStorage.setItem('naturaglow-cart', JSON.stringify(cartItems));
+        }
         
         // Función para añadir productos al carrito
         function addToCart(productName) {
-            cartCount++;
+            const existingItem = cartItems.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({
+                    name: productName,
+                    price: productPrices[productName],
+                    quantity: 1
+                });
+            }
+            
+            cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
             updateCartCount();
+            updateCartDisplay();
+            saveCart();
             showNotification(`${productName} añadido al carrito`);
         }
         
         // Función para actualizar el contador del carrito
         function updateCartCount() {
-            const cartBadge = document.querySelector('.fa-shopping-cart + span');
+            const cartBadge = document.getElementById('cart-count');
             if (cartBadge) {
                 cartBadge.textContent = cartCount;
+                if (cartCount > 0) {
+                    cartBadge.classList.remove('hidden');
+                } else {
+                    cartBadge.classList.add('hidden');
+                }
             }
+        }
+        
+        // Función para actualizar la visualización del carrito
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = '';
+                emptyCart.classList.remove('hidden');
+                cartTotal.textContent = '$0';
+                return;
+            }
+            
+            emptyCart.classList.add('hidden');
+            cartItemsContainer.innerHTML = '';
+            
+            let total = 0;
+            
+            cartItems.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg';
+                itemElement.innerHTML = `
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-800">${item.name}</h4>
+                        <p class="text-sm text-gray-600">$${item.price.toLocaleString('es-CO')}</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center border border-gray-300 rounded-lg">
+                            <button onclick="updateQuantity(${index}, -1)" class="px-3 py-1 hover:bg-gray-100 transition-colors duration-200">
+                                <i class="fas fa-minus text-xs"></i>
+                            </button>
+                            <span class="px-3 py-1 min-w-[2rem] text-center">${item.quantity}</span>
+                            <button onclick="updateQuantity(${index}, 1)" class="px-3 py-1 hover:bg-gray-100 transition-colors duration-200">
+                                <i class="fas fa-plus text-xs"></i>
+                            </button>
+                        </div>
+                        <span class="font-semibold text-natural-green">$${itemTotal.toLocaleString('es-CO')}</span>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 transition-colors duration-200">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(itemElement);
+            });
+            
+            cartTotal.textContent = `$${total.toLocaleString('es-CO')}`;
+        }
+        
+        // Función para actualizar cantidad de un producto
+        function updateQuantity(index, change) {
+            const item = cartItems[index];
+            const newQuantity = item.quantity + change;
+            
+            if (newQuantity <= 0) {
+                removeFromCart(index);
+            } else {
+                item.quantity = newQuantity;
+                cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+                updateCartCount();
+                updateCartDisplay();
+                saveCart();
+            }
+        }
+        
+        // Función para eliminar producto del carrito
+        function removeFromCart(index) {
+            const removedItem = cartItems[index];
+            cartItems.splice(index, 1);
+            cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+            updateCartCount();
+            updateCartDisplay();
+            saveCart();
+            showNotification(`${removedItem.name} eliminado del carrito`);
+        }
+        
+        // Función para vaciar el carrito
+        function clearCart() {
+            cartItems = [];
+            cartCount = 0;
+            updateCartCount();
+            updateCartDisplay();
+            saveCart();
+            showNotification('Carrito vaciado');
+        }
+        
+        // Función para finalizar compra
+        function checkout() {
+            if (cartItems.length === 0) {
+                showNotification('Tu carrito está vacío');
+                return;
+            }
+            
+            const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            showNotification(`¡Gracias por tu compra! Total: $${total.toLocaleString('es-CO')}`);
+            
+            // Aquí se podría integrar con un sistema de pagos real
+            clearCart();
+            closeCartModal();
         }
         
         // Función para mostrar notificaciones
@@ -583,6 +793,57 @@
                 }
             }
         };
+
+        // Chat interactivo
+        const openChatBtn = document.getElementById('open-chat-btn');
+        const chatIframeContainer = document.getElementById('chat-iframe-container');
+        const closeChatBtn = document.getElementById('close-chat-btn');
+
+        openChatBtn.addEventListener('click', function() {
+            chatIframeContainer.classList.remove('hidden');
+            openChatBtn.classList.add('hidden');
+        });
+
+        closeChatBtn.addEventListener('click', function() {
+            chatIframeContainer.classList.add('hidden');
+            openChatBtn.classList.remove('hidden');
+        });
+
+        // Funciones para el modal del carrito
+        function openCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Event listeners para el carrito
+        document.getElementById('cart-btn').addEventListener('click', openCartModal);
+        document.getElementById('close-cart').addEventListener('click', closeCartModal);
+        document.getElementById('clear-cart').addEventListener('click', clearCart);
+        document.getElementById('checkout-btn').addEventListener('click', checkout);
+        
+        // Cerrar modal al hacer clic fuera de él
+        document.getElementById('cart-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCartModal();
+            }
+        });
+        
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCartModal();
+            }
+        });
+        
+        // Cargar carrito al iniciar la página
+        loadCart();
     </script>
 </body>
 </html> 
